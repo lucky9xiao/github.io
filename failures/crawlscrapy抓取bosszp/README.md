@@ -24,6 +24,7 @@
 
 ## scrapy框架的重定向（302）问题
 
+......
 
 
 
@@ -33,6 +34,5 @@
 
 
 
-
-- Home Page: https://github.com/lucky9xiao/github.io
+- **[返回主页]（https://github.com/lucky9xiao/github.io）**
 
