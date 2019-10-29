@@ -18,12 +18,6 @@
 
 
 
-
-
-
-
-## scrapy框架的重定向（302）问题
-
 ......
 
 
@@ -34,5 +28,5 @@
 
 
 
-- **[返回主页]（https://github.com/lucky9xiao/github.io）**
+- 返回主页**[github.io](https://github.com/lucky9xiao/github.io)**
 
