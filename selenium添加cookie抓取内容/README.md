@@ -1,9 +1,5 @@
 # selenium.webdriver抓取相关
 
-未解决的问题。
-
-[TOC]
-
 ## 关于网站爬虫识别
 
 
@@ -18,11 +14,7 @@
 
 ## 关于selenium.webdriver设置
 
-**开发者模式：**使用此模式可以较大程度上防止被网站识别。以tb网为例，若不开启开发者模式，直接被判定为恶意用户。
-
-
-
-
+**开发者模式：** 使用此模式可以较大程度上防止被网站识别。以tb网为例，若不开启开发者模式，直接被判定为恶意用户。
 
 
 
@@ -30,31 +22,12 @@
 
 ## 关于webdriver的被识别
 
-**tb网：**若在验证通过前使用webdriver相关操作，将直接被判定为恶意用户。
+**tb网：** 若在验证通过前使用webdriver相关操作，将直接被判定为恶意用户。
 
-**bosszp:**同上
-
-
+**bosszp:** 同上
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- Home Page: [lucky9xiao](https://github.com/lucky9xiao)/**[github.io](https://github.com/lucky9xiao/github.io)**
+- 返回主页:**[github.io](https://github.com/lucky9xiao/github.io)**
 
