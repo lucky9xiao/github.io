@@ -1,4 +1,4 @@
-# encoding=utf8
+# coding=utf8
 import time
 import json
 from lxml import etree
@@ -40,16 +40,16 @@ class TaobaoSpider():
         self.parsed_count += 1
         time.sleep(2.5)  # 等待2.5s
         selector = etree.HTML(self.driver.page_source)  # 创建选择器
-        infos = selector.xpath("//div[@class='grid g-clearfix']/div[@class='items']/div[@class='item J_MouserOnverReq  ']")
+        need_li = selector.xpath("//div[@class='grid g-clearfix']/div[@class='items']/div[@class='item J_MouserOnverReq  ']")
         self.contents = []
-        for i in range(len(infos)):
-            for info in infos[i][0]:  # 此处若不加[0]，可能会出现同种商品输出2次
+        for i in range(len(need_li)):
+            for need in need_li[i][0]:  # 此处若不加[0]，可能会出现同种商品输出2次
                 item = {}
-                item["title"] = info.xpath("//img[@class='J_ItemPic img']/@alt")[i]
-                item["price"] = info.xpath("//div[@class='price g_price g_price-highlight']/strong/text()")[i].strip()
-                item["sales"] = info.xpath("//div[@class='row row-1 g-clearfix']/div[@class='deal-cnt']/text()")[i].strip()
-                item["store"] = info.xpath("//div[@class='shop']/a[@class='shopname J_MouseEneterLeave J_ShopInfo']/span[2]/text()")[i].strip()
-                item["city"] = info.xpath("//div[@class='row row-3 g-clearfix']/div[@class='location']/text()")[i].strip()
+                item["title"] = need.xpath("//img[@class='J_ItemPic img']/@alt")[i]
+                item["price"] = need.xpath("//div[@class='price g_price g_price-highlight']/strong/text()")[i].strip()
+                item["sales"] = need.xpath("//div[@class='row row-1 g-clearfix']/div[@class='deal-cnt']/text()")[i].strip()
+                item["store"] = need.xpath("//div[@class='shop']/a[@class='shopname J_MouseEneterLeave J_ShopInfo']/span[2]/text()")[i].strip()
+                item["city"] = need.xpath("//div[@class='row row-3 g-clearfix']/div[@class='location']/text()")[i].strip()
                 # print(item)
                 self.contents.append(item)
 
@@ -115,6 +115,7 @@ class TaobaoSpider():
         driver.save_screenshot("end.png")  # 保存结束快照
         driver.quit()  # 结束webdriver
         print("抓取结束")
+
 
 if __name__ == '__main__':
     tbspider = TaobaoSpider()  # 实例化
