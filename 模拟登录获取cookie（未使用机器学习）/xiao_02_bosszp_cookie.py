@@ -1,4 +1,4 @@
-# encoding=utf8
+# coding=utf8
 import time
 import json
 from selenium.webdriver import Chrome
@@ -23,12 +23,8 @@ class Bosszp():
         ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362"
         option.add_argument('user-agent=' + ua)
 
-    def log_in(self):
-        mouse = c1()
-        driver = self.driver
-        driver.get(self.url)
-        driver.maximize_window()  # 窗口最大化
-        time.sleep(1)  # 等1秒，等待页面加载
+    # 滑块验证
+    def slide_code(self, mouse):
         while True:
             driver.refresh()  # 刷新页面
             time.sleep(2)  # 等2秒，等待页面加载
@@ -52,6 +48,16 @@ class Bosszp():
                 break
             else:
                 continue
+
+    # 主程序
+    def log_in(self):
+        mouse = c1()
+        driver = self.driver
+        driver.get(self.url)
+        driver.maximize_window()  # 窗口最大化
+        time.sleep(1)  # 等1秒，等待页面加载
+        # 循环进行滑块验证，直至成功
+        self.slide_code(mouse)
         # 输入账号
         driver.find_element_by_name("account").send_keys("user")
         time.sleep(1)
@@ -70,6 +76,7 @@ class Bosszp():
             print(e)
             driver.save_screenshot("zpfailure.jpg")
             print("登入失败，请重试")
+            return main
         # 打印快照
         driver.save_screenshot("zpsuccessful.jpg")
         # 输出登入之后的cookies
